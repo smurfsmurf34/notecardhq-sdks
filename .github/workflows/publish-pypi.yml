@@ -1,0 +1,29 @@
+# Publishes python/ to PyPI with trusted publishing (no token). Runs when a
+# python-v* tag is pushed or by hand. PyPI side, once: Publishing -> add a
+# (pending) trusted publisher: owner smurfsmurf34, repository notecardhq-sdks,
+# workflow publish-pypi.yml, environment pypi.
+name: Publish Python package
+on:
+  push:
+    tags: ["python-v*"]
+  workflow_dispatch:
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+      contents: read
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]' && pytest -q
+      - run: rm -rf dist && python -m build
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python/dist
