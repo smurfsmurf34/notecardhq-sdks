@@ -1,0 +1,64 @@
+{
+  "name": "notecardhq",
+  "version": "0.1.0",
+  "description": "Official notecardHQ SDK: send real handwritten notes and cards by API. A robot writes each card with a real pen, then it is stamped and mailed.",
+  "keywords": [
+    "handwritten notes",
+    "handwritten cards",
+    "handwritten notes api",
+    "handwritten letters",
+    "direct mail",
+    "direct mail api",
+    "thank you cards",
+    "postcards",
+    "api",
+    "sdk",
+    "notecardhq"
+  ],
+  "homepage": "https://notecardhq.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smurfsmurf34/notecardhq-sdks.git",
+    "directory": "node"
+  },
+  "bugs": "https://github.com/smurfsmurf34/notecardhq-sdks/issues",
+  "license": "MIT",
+  "author": "notecardHQ",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/cjs-package.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  }
+}

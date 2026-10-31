@@ -1,0 +1,23 @@
+{
+  "source": "lib/webhooks.ts signatureHeader",
+  "vectors": [
+    {
+      "secret": "whsec_0123456789abcdef0123456789abcdef0123456789abcdef",
+      "t": 1792900000,
+      "body": "{\"id\":\"evt_0123456789abcdef\",\"type\":\"note.card_printed\",\"created\":1792900000,\"test\":false,\"data\":{\"id\":\"k57abc123\",\"status\":\"card_printed\",\"externalId\":\"user_123\",\"recipient\":{\"firstName\":\"Zoë\",\"lastName\":\"Åström\",\"address1\":\"123 MAIN ST\",\"city\":\"AUSTIN\",\"state\":\"TX\",\"postalCode\":\"78701\",\"country\":\"US\"},\"content\":\"Hi Zoë, congrats on your first dollar!\"}}",
+      "header": "t=1792900000,v1=07fa64a3e3270369190ef808f65486957df8de662cb5ceb82809eed7eecdce85"
+    },
+    {
+      "secret": "whsec_fedcba9876543210fedcba9876543210fedcba9876543210",
+      "t": 1792900123,
+      "body": "{\"id\":\"evt_0123456789abcdef\",\"type\":\"note.card_dispatched\",\"created\":1792900000,\"test\":false,\"data\":{\"id\":\"k57abc123\",\"status\":\"card_dispatched\",\"externalId\":\"user_123\",\"recipient\":{\"firstName\":\"Zoë\",\"lastName\":\"Åström\",\"address1\":\"123 MAIN ST\",\"city\":\"AUSTIN\",\"state\":\"TX\",\"postalCode\":\"78701\",\"country\":\"US\"},\"content\":\"Hi Zoë, congrats on your first dollar!\",\"sentAt\":1792900100000}}",
+      "header": "t=1792900123,v1=5f85b20896dc595236929b6e45492ca1f93ed087b8fbd6721d67df4a537a77ad"
+    },
+    {
+      "secret": "whsec_a1b2c3d4e5f60718a1b2c3d4e5f60718a1b2c3d4e5f60718",
+      "t": 1700000000,
+      "body": "{\"id\":\"evt_x\",\"type\":\"note.created\",\"created\":1700000000,\"test\":true,\"data\":{}}",
+      "header": "t=1700000000,v1=b7aa1c27e96ba5605129078124350a579ee8e27a75c84f417febd28b5f4f169f"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "notecardhq"
+dynamic = ["version"]
+description = "Official notecardHQ SDK: send real handwritten notes and cards by API. A robot writes each card with a real pen, then it is stamped and mailed."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "notecardHQ" }]
+keywords = [
+  "handwritten notes",
+  "handwritten cards",
+  "handwritten notes api",
+  "handwritten letters",
+  "direct mail",
+  "direct mail api",
+  "thank you cards",
+  "postcards",
+  "api",
+  "sdk",
+  "notecardhq",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Communications",
+  "Topic :: Office/Business",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+dependencies = ["httpx>=0.23,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "build>=1"]
+
+[project.urls]
+Homepage = "https://notecardhq.com"
+Documentation = "https://app.notecardhq.com/docs"
+Developers = "https://notecardhq.com/developers"
+Source = "https://github.com/smurfsmurf34/notecardhq-sdks/tree/main/python"
+Issues = "https://github.com/smurfsmurf34/notecardhq-sdks/issues"
+
+[tool.hatch.version]
+path = "src/notecardhq/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/notecardhq"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/notecardhq", "tests", "README.md", "LICENSE", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
